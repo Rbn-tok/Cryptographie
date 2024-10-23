@@ -10,20 +10,16 @@ def crypto(mot,dec):
       
       indexmot=base.index(mot[i])
       pas=len(base)-(indexmot+1)
-      print(mot[i])
-      print("pas :",pas)
+     
     
       if pas <deca :
         indexmot=deca -pas
         motcrypte +=base[indexmot-1]
-        print("indexmot :",indexmot)
-        print("mot crypte :",motcrypte)
       else :
         motcrypte +=base[indexmot + deca]
-        print(motcrypte)
     
   return motcrypte
 
-mot="6789&"  
+mot="papa"  
 print(mot)
 print(crypto(mot,5))
