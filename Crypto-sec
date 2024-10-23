@@ -1,0 +1,29 @@
+def crypto(mot,dec):
+  base="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&0123456789"
+  n=len(mot)
+  deca=dec
+  motcrypte=""
+  
+  
+  for i in range(0,n):
+    if mot[i] in base :
+      
+      indexmot=base.index(mot[i])
+      pas=len(base)-(indexmot+1)
+      print(mot[i])
+      print("pas :",pas)
+    
+      if pas <deca :
+        indexmot=deca -pas
+        motcrypte +=base[indexmot-1]
+        print("indexmot :",indexmot)
+        print("mot crypte :",motcrypte)
+      else :
+        motcrypte +=base[indexmot + deca]
+        print(motcrypte)
+    
+  return motcrypte
+
+mot="6789&"  
+print(mot)
+print(crypto(mot,5))
