@@ -1,5 +1,4 @@
-def crypto(mot,dec):
-  base="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&0123456789"
+def crypto(mot,dec,base):
   n=len(mot)
   deca=dec
   motcrypte=""
@@ -20,6 +19,7 @@ def crypto(mot,dec):
     
   return motcrypte
 
+base="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&0123456789"
 mot="papa"  
 print(mot)
-print(crypto(mot,5))
+print(crypto(mot,5,base))
