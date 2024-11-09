@@ -1,50 +1,47 @@
-def crypter(mot,dec,base):
+def crypter(mot,dec,base_cle):
   n=len(mot)
   deca=dec
   motcrypte=""
-  
-  
+  base=base_cle
   for i in range(0,n):
     if mot[i] in base :
-      
       indexmot=base.index(mot[i])
-      pas=len(base)-(indexmot+1)
-     
-    
-      if pas <deca :
-        indexmot=deca -pas
+      distance=len(base)-(indexmot+1)
+      if distance <deca :
+        indexmot=deca -distance
         motcrypte +=base[indexmot-1]
       else :
         motcrypte +=base[indexmot + deca]
     
   return motcrypte
 
-def decrypter(mot,dec,base):
+
+def decrypter(mot,dec,base_cle):
   n=len(mot)
   deca=dec
   motcrypte=""
-  
-  
+  base=base_cle
   for i in range(0,n):
     if mot[i] in base :
-      
       indexmot=base.index(mot[i])
-      pas=len(base)-(indexmot+1)
-     
-    
-      if pas <deca :
-        indexmot=deca -pas
-        motcrypte +=base[indexmot-1]
+      distance=len(base)-(indexmot+1)
+      
+      if indexmot <deca :
+        indexmot=len(base)-(deca-indexmot)
+        motcrypte +=base[indexmot]
       else :
-        motcrypte +=base[indexmot + deca]
-    
+        motcrypte +=base[indexmot-deca]
   return motcrypte
 
-base="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&0123456789"
+base1="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&012345678"
+base2="abcdefghijklmnopqrstuvwxyz"
+decalage=10
 mot="papa"  
-mot2="ufuf"  
+mot_crypter=crypter(mot,decalage, base1)
+mot2="abcd"
+
 print(mot)
-print(crypter(mot,5,base))
-print(decrypter(mot,5,base))
-
-
+print(crypter(mot,5,base1))
+print(crypter(mot,5,base2))
+print("mot crypter ",mot ," : ",mot_crypter)
+print("décrypter ",mot_crypter," : ",decrypter(mot_crypter,decalage,base1))
